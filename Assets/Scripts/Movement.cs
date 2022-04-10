@@ -25,11 +25,12 @@ public class Movement : MonoBehaviour
         {
             Debug.Log("Pressed Space - Thrusting");
         }
-        if (Input.GetKey(KeyCode.D)) {
-            Debug.Log("Pressed Right Arrow - Rotate Right");
-        }
         if (Input.GetKey(KeyCode.A)) {
-            Debug.Log("Pressed Left Arrow - Rotate Left");
+            Debug.Log("Rotate Left");
         }
+        else if (Input.GetKey(KeyCode.D)) {
+            Debug.Log("Rotate Right");
+        }
+        
     }
 }
