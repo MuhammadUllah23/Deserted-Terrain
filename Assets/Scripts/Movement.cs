@@ -31,11 +31,12 @@ public class Movement : MonoBehaviour
 
     void ProcessRotate()
     {
-        if (Input.GetKey(KeyCode.A)) {
-            Debug.Log("Rotate Left");
-        }
-        else if (Input.GetKey(KeyCode.D)) {
+        if (Input.GetKey(KeyCode.D)) {
             Debug.Log("Rotate Right");
         }
+        else if (Input.GetKey(KeyCode.A)) {
+            Debug.Log("Rotate Left");
+        }
+        
     }
 }
