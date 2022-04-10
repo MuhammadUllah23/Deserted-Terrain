@@ -26,7 +26,8 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space)) 
         {
-            
+            objectRigidbody.AddRelativeForce(Vector3.up);
+            // Same Outcome: objectRigidbody.AddRelativeForce(0, 1, 0);
         }
        
     }
