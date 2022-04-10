@@ -49,6 +49,9 @@ public class Movement : MonoBehaviour
 
     void ApplyRotation(float rotationThisFrame)
     {
+        objectRigidbody.freezeRotation = true; // freezing rotation so we can manually rotate.
         transform.Rotate(-Vector3.forward * rotationThisFrame * Time.deltaTime);
+        // objectRigidbody.freezeRotation = false; // unfreezing rotation so the physics system can take over.
+        objectRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
     }
 }
