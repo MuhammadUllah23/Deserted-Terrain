@@ -8,7 +8,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     Rigidbody objectRigidbody;
-    [SerializeField] float mainThrust = 100f;
+    [SerializeField] float mainThrust = 1000f;
 
     // Start is called before the first frame update
     void Start()
