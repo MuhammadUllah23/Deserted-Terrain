@@ -7,10 +7,12 @@ using UnityEngine;
 // Our movement class is inheritting content created in MonoBehaviour 
 public class Movement : MonoBehaviour
 {
+    Rigidbody objectRigidbody;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        objectRigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -24,7 +26,7 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space)) 
         {
-            Debug.Log("Pressed Space - Thrusting");
+            
         }
        
     }
