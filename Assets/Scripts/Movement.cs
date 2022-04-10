@@ -9,6 +9,8 @@ public class Movement : MonoBehaviour
 {
     Rigidbody objectRigidbody;
     [SerializeField] float mainThrust = 1000f;
+    [SerializeField] float rotateThrust = 500f;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -36,10 +38,10 @@ public class Movement : MonoBehaviour
     void ProcessRotate()
     {
         if (Input.GetKey(KeyCode.D)) {
-            transform.Rotate(-Vector3.forward);
+            transform.Rotate(-Vector3.forward * rotateThrust * Time.deltaTime);
         }
         else if (Input.GetKey(KeyCode.A)) {
-            transform.Rotate(Vector3.forward);
+            transform.Rotate(Vector3.forward * rotateThrust * Time.deltaTime);
         }
         
     }
