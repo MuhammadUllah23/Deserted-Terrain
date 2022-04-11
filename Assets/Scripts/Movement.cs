@@ -26,6 +26,7 @@ public class Movement : MonoBehaviour
     {
         ProcessThrust();
         ProcessRotate();
+
         if (!Input.GetKey(KeyCode.Space) & rocketSound.isPlaying) {
             rocketSound.Stop();
         }
@@ -35,13 +36,13 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space)) 
         {
-            // rocketSound.\
-            if(!rocketSound.isPlaying) {
-                rocketSound.Play();
-            }
-            
+           
             objectRigidbody.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
             // Same Outcome: objectRigidbody.AddRelativeForce(0, 1, 0);
+
+            if(!rocketSound.isPlaying) {
+                rocketSound.Play();
+            } 
         }
        
     }
