@@ -8,6 +8,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     Rigidbody objectRigidbody;
+    AudioSource rocketSound;
     [SerializeField] float mainThrust = 1000f;
     [SerializeField] float rotateThrust = 500f;
    
@@ -16,6 +17,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         objectRigidbody = GetComponent<Rigidbody>();
+        rocketSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
