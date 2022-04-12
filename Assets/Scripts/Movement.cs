@@ -27,9 +27,6 @@ public class Movement : MonoBehaviour
         ProcessThrust();
         ProcessRotate();
 
-        if (!Input.GetKey(KeyCode.Space) & rocketSound.isPlaying) {
-            rocketSound.Stop();
-        }
     }
 
     void ProcessThrust() 
@@ -43,6 +40,8 @@ public class Movement : MonoBehaviour
             if(!rocketSound.isPlaying) {
                 rocketSound.Play();
             } 
+        } else {
+            rocketSound.Stop();
         }
        
     }
