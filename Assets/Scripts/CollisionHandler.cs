@@ -17,8 +17,12 @@ public class CollisionHandler : MonoBehaviour
                     break;
                 default:
                     Debug.Log("You died :(");
-                    
+                     ReloadLevel();
                     break;
             }
+    }
+
+    void ReloadLevel() {
+        SceneManager.LoadScene(0);
     }
 }
