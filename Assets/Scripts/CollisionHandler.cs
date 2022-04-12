@@ -12,9 +12,6 @@ public class CollisionHandler : MonoBehaviour
                 case "Finish":
                     Debug.Log("YAAAYYY. YOU MADE IT!");
                     break;
-                case "Fuel":
-                    Debug.Log("Tank Refilled.");
-                    break;
                 default:
                     Debug.Log("You died :(");
                      ReloadLevel();
@@ -23,7 +20,7 @@ public class CollisionHandler : MonoBehaviour
     }
 
     void ReloadLevel() {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }
 }
