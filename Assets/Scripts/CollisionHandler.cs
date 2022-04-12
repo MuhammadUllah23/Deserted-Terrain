@@ -23,6 +23,6 @@ public class CollisionHandler : MonoBehaviour
     }
 
     void ReloadLevel() {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
