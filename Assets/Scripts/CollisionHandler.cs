@@ -6,7 +6,16 @@ public class CollisionHandler : MonoBehaviour
     void OnCollisionEnter(Collision other) {
             switch (other.gameObject.tag) {
                 case "Friendly":
-                    Debug.Log("Hello Friend!")
+                    Debug.Log("Hello Friend!");
+                    break;
+                case "Finish":
+                    Debug.Log("YAAAYYY. YOU MADE IT!");
+                    break;
+                case "Fuel":
+                    Debug.Log("Tank Refilled.");
+                    break;
+                default:
+                    Debug.Log("You died :(");
                     break;
             }
     }
