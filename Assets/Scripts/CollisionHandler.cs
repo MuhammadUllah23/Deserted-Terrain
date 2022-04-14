@@ -16,9 +16,14 @@ public class CollisionHandler : MonoBehaviour
                     break;
                 default:
                     Debug.Log("You died :(");
-                     Invoke("ReloadLevel", 1f);
+                    StartCrashSequence();
                     break;
             }
+    }
+
+    void StartCrashSequence() {
+        GetComponent<Movement>().enabled = false;
+        Invoke("ReloadLevel", 1f);
     }
 
     void ReloadLevel() {
