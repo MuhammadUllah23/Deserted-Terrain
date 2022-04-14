@@ -23,6 +23,7 @@ public class CollisionHandler : MonoBehaviour
 
     void StartCrashSequence() {
         GetComponent<Movement>().enabled = false;
+        GetComponent<AudioSource>().Stop();
         Invoke("ReloadLevel", 1f);
     }
 
