@@ -13,7 +13,7 @@ public class CollisionHandler : MonoBehaviour
                     break;
                 case "Finish":
                     Debug.Log("You made it to the next level!" + SceneManager.sceneCountInBuildSettings);
-                    Invoke("LoadNextLevel", delayTime);
+                    StartFinishSequence();
                     break;
                 default:
                     Debug.Log("You died :(");
@@ -22,6 +22,11 @@ public class CollisionHandler : MonoBehaviour
             }
     }
 
+    void StartFinishSequence() {
+        GetComponent<Movement>().enabled = false;
+        GetComponent<AudioSource>().Stop();
+        Invoke("LoadNextLevel", delayTime);
+    }
     void StartCrashSequence() {
         GetComponent<Movement>().enabled = false;
         GetComponent<AudioSource>().Stop();
