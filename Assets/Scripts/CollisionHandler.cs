@@ -16,7 +16,7 @@ public class CollisionHandler : MonoBehaviour
                     break;
                 default:
                     Debug.Log("You died :(");
-                     ReloadLevel();
+                     Invoke("ReloadLevel", 1f);
                     break;
             }
     }
