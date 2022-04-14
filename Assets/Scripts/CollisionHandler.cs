@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    float delayTime = 1f;
 
     void OnCollisionEnter(Collision other) {
             switch (other.gameObject.tag) {
@@ -24,7 +25,7 @@ public class CollisionHandler : MonoBehaviour
     void StartCrashSequence() {
         GetComponent<Movement>().enabled = false;
         GetComponent<AudioSource>().Stop();
-        Invoke("ReloadLevel", 1f);
+        Invoke("ReloadLevel", delayTime);
     }
 
     void ReloadLevel() {
