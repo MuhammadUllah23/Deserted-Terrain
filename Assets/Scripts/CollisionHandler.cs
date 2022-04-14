@@ -13,7 +13,7 @@ public class CollisionHandler : MonoBehaviour
                     break;
                 case "Finish":
                     Debug.Log("You made it to the next level!" + SceneManager.sceneCountInBuildSettings);
-                    LoadNextLevel();
+                    Invoke("LoadNextLevel", delayTime);
                     break;
                 default:
                     Debug.Log("You died :(");
