@@ -7,11 +7,18 @@ using UnityEngine;
 // Our movement class is inheritting content created in MonoBehaviour 
 public class Movement : MonoBehaviour
 {
-    Rigidbody objectRigidbody;
-    AudioSource rocketSound;
+
+    // PARAMETERS - for tuning, typically set in the editor
     [SerializeField] float mainThrust = 1000f;
     [SerializeField] float rotateThrust = 500f;
     [SerializeField] AudioClip mainEngine;
+    
+    // CACHE - e.g. references for readability or speed
+    Rigidbody objectRigidbody;
+    AudioSource rocketSound;
+    // STATE - private instance (member) variables
+    
+    
    
 
     // Start is called before the first frame update
