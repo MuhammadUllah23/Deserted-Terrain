@@ -9,6 +9,7 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] AudioClip successSound;
 
     AudioSource rocketSound;
+    bool isTransitioning = false;
     void Start() {
         rocketSound = GetComponent<AudioSource>();    
     }
@@ -31,12 +32,19 @@ public class CollisionHandler : MonoBehaviour
 
     void StartFinishSequence() {
         GetComponent<Movement>().enabled = false;
-        rocketSound.PlayOneShot(successSound);
+        if(!isTransitioning) {
+           rocketSound.PlayOneShot(successSound); 
+        } 
+        isTransitioning = true;
         Invoke("LoadNextLevel", delayTime);
     }
     void StartCrashSequence() {
         GetComponent<Movement>().enabled = false;
-        rocketSound.PlayOneShot(deathSound);
+        if (!isTransitioning) {
+            rocketSound.PlayOneShot(deathSound);
+        }
+        
+        isTransitioning = true;
         Invoke("ReloadLevel", delayTime);
     }
 
