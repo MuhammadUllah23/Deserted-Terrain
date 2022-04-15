@@ -15,36 +15,34 @@ public class CollisionHandler : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision other) {
-            switch (other.gameObject.tag) {
-                case "Friendly":
-                    Debug.Log("Hello Friend!");
-                    break;
-                case "Finish":
-                    Debug.Log("You made it to the next level!" + SceneManager.sceneCountInBuildSettings);
-                    StartFinishSequence();
-                    break;
-                default:
-                    Debug.Log("You died :(");
-                    StartCrashSequence();
-                    break;
-            }
+        
+        if (isTransitioning) return;
+
+        switch (other.gameObject.tag) {
+            case "Friendly":
+                Debug.Log("Hello Friend!");
+                break;
+            case "Finish":
+                Debug.Log("You made it to the next level!" + SceneManager.sceneCountInBuildSettings);
+                StartFinishSequence();
+                break;
+            default:
+                Debug.Log("You died :(");
+                StartCrashSequence();
+                break;
+        }
     }
 
     void StartFinishSequence() {
-        GetComponent<Movement>().enabled = false;
-        if(!isTransitioning) {
-           rocketSound.PlayOneShot(successSound); 
-        } 
         isTransitioning = true;
+        GetComponent<Movement>().enabled = false;
+        rocketSound.PlayOneShot(successSound);
         Invoke("LoadNextLevel", delayTime);
     }
     void StartCrashSequence() {
-        GetComponent<Movement>().enabled = false;
-        if (!isTransitioning) {
-            rocketSound.PlayOneShot(deathSound);
-        }
-        
         isTransitioning = true;
+        GetComponent<Movement>().enabled = false;
+        rocketSound.PlayOneShot(deathSound);
         Invoke("ReloadLevel", delayTime);
     }
 
