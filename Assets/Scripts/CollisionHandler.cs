@@ -36,12 +36,14 @@ public class CollisionHandler : MonoBehaviour
     void StartFinishSequence() {
         isTransitioning = true;
         GetComponent<Movement>().enabled = false;
+        rocketSound.Stop();
         rocketSound.PlayOneShot(successSound);
         Invoke("LoadNextLevel", delayTime);
     }
     void StartCrashSequence() {
         isTransitioning = true;
         GetComponent<Movement>().enabled = false;
+        rocketSound.Stop();
         rocketSound.PlayOneShot(deathSound);
         Invoke("ReloadLevel", delayTime);
     }
