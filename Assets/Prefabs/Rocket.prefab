@@ -189,7 +189,7 @@ Transform:
   m_GameObject: {fileID: 1337821457253341366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.1209, z: 1}
+  m_LocalScale: {x: 1, y: 1.15, z: 1}
   m_Children: []
   m_Father: {fileID: 7901624731094742473}
   m_RootOrder: 0
@@ -1250,6 +1250,9 @@ GameObject:
   - component: {fileID: 318654636}
   - component: {fileID: 229649356}
   - component: {fileID: 91681033}
+  - component: {fileID: 2664506571462527213}
+  - component: {fileID: 3107155020543155822}
+  - component: {fileID: 7893378218821166501}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -1428,6 +1431,45 @@ MonoBehaviour:
   delayTime: 1
   deathSound: {fileID: 8300000, guid: 046b49b47f6a41c4a9b1c2fb83b281f2, type: 3}
   successSound: {fileID: 8300000, guid: 4a066ad14840e4e42950a2b0fdb52b4d, type: 3}
+--- !u!65 &2664506571462527213
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7901624731094742469}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8678749, y: 0.99117756, z: 1}
+  m_Center: {x: 0.028342884, y: -0.68329525, z: 0}
+--- !u!65 &3107155020543155822
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7901624731094742469}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.186064, z: 1}
+  m_Center: {x: 0, y: 0.51803195, z: 0}
+--- !u!65 &7893378218821166501
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7901624731094742469}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.27966738, z: 1}
+  m_Center: {x: 0, y: 1.7550089, z: 0}
 --- !u!1 &8394898230296645797
 GameObject:
   m_ObjectHideFlags: 0
