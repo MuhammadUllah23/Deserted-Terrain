@@ -68,9 +68,16 @@ public class Movement : MonoBehaviour
         {
             ApplyRotation(rotateThrust);
             
+            
         }
         else if (Input.GetKey(KeyCode.A)) {
             ApplyRotation(-rotateThrust);
+            if(!rightBoosterParticle.isPlaying) {
+                rightBoosterParticle.Play();
+            }
+        }
+        else {
+            rightBoosterParticle.Stop();
         }
         
     }
