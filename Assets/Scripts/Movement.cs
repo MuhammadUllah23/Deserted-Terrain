@@ -50,9 +50,14 @@ public class Movement : MonoBehaviour
 
             if(!rocketSound.isPlaying) {
                 rocketSound.PlayOneShot(mainEngine);
+                
             } 
+            if(!mainThrustParticle.isPlaying) {
+                mainThrustParticle.Play();
+            }
         } else {
             rocketSound.Stop();
+            mainThrustParticle.Stop();
         }
        
     }
@@ -62,6 +67,7 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             ApplyRotation(rotateThrust);
+            
         }
         else if (Input.GetKey(KeyCode.A)) {
             ApplyRotation(-rotateThrust);
