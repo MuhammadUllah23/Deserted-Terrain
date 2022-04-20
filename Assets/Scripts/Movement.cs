@@ -78,23 +78,42 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
-            ApplyRotation(rotateThrust);
-            if(!leftBoosterParticle.isPlaying) {
-                leftBoosterParticle.Play();
-            }
-            
+            RotateRight();
+
         }
-        else if (Input.GetKey(KeyCode.A)) {
-            ApplyRotation(-rotateThrust);
-            if(!rightBoosterParticle.isPlaying) {
-                rightBoosterParticle.Play();
-            }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            RotateLeft();
         }
-        else {
-            rightBoosterParticle.Stop();
-            leftBoosterParticle.Stop();
+        else
+        {
+            StopPlayingParticles();
         }
-        
+
+    }
+
+    void RotateRight()
+    {
+        ApplyRotation(rotateThrust);
+        if (!leftBoosterParticle.isPlaying)
+        {
+            leftBoosterParticle.Play();
+        }
+    }
+
+    void RotateLeft()
+    {
+        ApplyRotation(-rotateThrust);
+        if (!rightBoosterParticle.isPlaying)
+        {
+            rightBoosterParticle.Play();
+        }
+    }
+
+    void StopPlayingParticles()
+    {
+        rightBoosterParticle.Stop();
+        leftBoosterParticle.Stop();
     }
 
     void ApplyRotation(float rotationThisFrame)
