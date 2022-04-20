@@ -16,6 +16,21 @@ public class CollisionHandler : MonoBehaviour
         rocketSound = GetComponent<AudioSource>();    
     }
 
+
+    void Update() {
+        // update method that calls on methods to skip level    
+        SkipLevel();
+        // method that disables collision
+        DisableCollision();
+    }
+
+    void SkipLevel() {
+        // if the "L" button is pressed then invoke next level method
+        if (Input.GetKey(KeyCode.L)) {
+            Invoke("LoadNextLevel", delayTime);
+        }
+    }
+
     void OnCollisionEnter(Collision other) {
         
         if (isTransitioning) return;
