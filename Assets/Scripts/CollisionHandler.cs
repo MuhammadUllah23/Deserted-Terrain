@@ -11,6 +11,7 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] ParticleSystem explosionParticle;
 
     AudioSource rocketSound;
+    bool disableCollision = false;
     bool isTransitioning = false;
     void Start() {
         rocketSound = GetComponent<AudioSource>();    
@@ -26,14 +27,23 @@ public class CollisionHandler : MonoBehaviour
 
     void SkipLevel() {
         // if the "L" button is pressed then invoke next level method
-        if (Input.GetKey(KeyCode.L)) {
+        if (Input.GetKeyDown(KeyCode.L)) {
             Invoke("LoadNextLevel", delayTime);
         }
     }
 
+    void DisableCollision() {
+        // if the "C" button is pressed then toggle variable to opposite of what it was set to.
+        if (Input.GetKeyDown(KeyCode.C)) {
+            disableCollision= !disableCollision;
+        }
+        ;
+        
+    }
+
     void OnCollisionEnter(Collision other) {
         
-        if (isTransitioning) return;
+        if (isTransitioning || disableCollision) return;
 
         switch (other.gameObject.tag) {
             case "Friendly":
