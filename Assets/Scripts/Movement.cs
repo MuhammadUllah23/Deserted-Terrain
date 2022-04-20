@@ -53,6 +53,24 @@ public class Movement : MonoBehaviour
 
     }
 
+  void ProcessRotate()
+    {
+        if (Input.GetKey(KeyCode.D))
+        {
+            RotateRight();
+
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            RotateLeft();
+        }
+        else
+        {
+            StopPlayingParticles();
+        }
+
+    }
+    
     void StartThrusting()
     {
         objectRigidbody.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
@@ -72,24 +90,6 @@ public class Movement : MonoBehaviour
     {
         rocketSound.Stop();
         mainThrustParticle.Stop();
-    }
-
-    void ProcessRotate()
-    {
-        if (Input.GetKey(KeyCode.D))
-        {
-            RotateRight();
-
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            RotateLeft();
-        }
-        else
-        {
-            StopPlayingParticles();
-        }
-
     }
 
     void RotateRight()
