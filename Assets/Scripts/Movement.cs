@@ -42,24 +42,31 @@ public class Movement : MonoBehaviour
 
     void ProcessThrust() 
     {
-        if (Input.GetKey(KeyCode.Space)) 
+        if (Input.GetKey(KeyCode.Space))
         {
-           
-            objectRigidbody.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
-            // Same Outcome: objectRigidbody.AddRelativeForce(0, 1, 0);
-
-            if(!rocketSound.isPlaying) {
-                rocketSound.PlayOneShot(mainEngine);
-                
-            } 
-            if(!mainThrustParticle.isPlaying) {
-                mainThrustParticle.Play();
-            }
-        } else {
+            startThrusting();
+        }
+        else {
             rocketSound.Stop();
             mainThrustParticle.Stop();
         }
        
+    }
+
+    void startThrusting()
+    {
+        objectRigidbody.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+        // Same Outcome: objectRigidbody.AddRelativeForce(0, 1, 0);
+
+        if (!rocketSound.isPlaying)
+        {
+            rocketSound.PlayOneShot(mainEngine);
+
+        }
+        if (!mainThrustParticle.isPlaying)
+        {
+            mainThrustParticle.Play();
+        }
     }
 
     void ProcessRotate()
@@ -67,7 +74,9 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             ApplyRotation(rotateThrust);
-            
+            if(!leftBoosterParticle.isPlaying) {
+                leftBoosterParticle.Play();
+            }
             
         }
         else if (Input.GetKey(KeyCode.A)) {
@@ -78,6 +87,7 @@ public class Movement : MonoBehaviour
         }
         else {
             rightBoosterParticle.Stop();
+            leftBoosterParticle.Stop();
         }
         
     }
