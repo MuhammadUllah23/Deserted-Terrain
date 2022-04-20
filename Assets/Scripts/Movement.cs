@@ -44,16 +44,16 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            startThrusting();
+            StartThrusting();
         }
-        else {
-            rocketSound.Stop();
-            mainThrustParticle.Stop();
+        else
+        {
+            StopThrusting();
         }
-       
+
     }
 
-    void startThrusting()
+    void StartThrusting()
     {
         objectRigidbody.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
         // Same Outcome: objectRigidbody.AddRelativeForce(0, 1, 0);
@@ -67,6 +67,11 @@ public class Movement : MonoBehaviour
         {
             mainThrustParticle.Play();
         }
+    }
+    void StopThrusting()
+    {
+        rocketSound.Stop();
+        mainThrustParticle.Stop();
     }
 
     void ProcessRotate()
