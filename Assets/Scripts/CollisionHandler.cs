@@ -19,26 +19,17 @@ public class CollisionHandler : MonoBehaviour
 
 
     void Update() {
-        // update method that calls on methods to skip level    
-        SkipLevel();
-        // method that disables collision
-        DisableCollision();
+       
+        RespondToDebugKeys();
     }
 
-    void SkipLevel() {
-        // if the "L" button is pressed then invoke next level method
+    void RespondToDebugKeys() {
         if (Input.GetKeyDown(KeyCode.L)) {
             Invoke("LoadNextLevel", delayTime);
-        }
-    }
-
-    void DisableCollision() {
-        // if the "C" button is pressed then toggle variable to opposite of what it was set to.
-        if (Input.GetKeyDown(KeyCode.C)) {
+        } 
+        else if (Input.GetKeyDown(KeyCode.C)) {
             disableCollision= !disableCollision;
         }
-        ;
-        
     }
 
     void OnCollisionEnter(Collision other) {
